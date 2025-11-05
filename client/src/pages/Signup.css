@@ -1,0 +1,200 @@
+/* ================= Reset default browser margin/padding ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* prevent page scroll */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ================= Navbar ================= */
+.navbar {
+  height: 60px;
+  width: 100%;
+  position: fixed; /* stick to top */
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #896c6c 0%, #e5beb5 40%, #eee6ca 70%, #f5fae1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar .links a {
+  color: #fff;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar .links a:hover {
+  color: #f5fae1;
+}
+
+/* ================= Page Wrapper ================= */
+.page-wrapper {
+  min-height: 100vh;
+  padding-top: 0; /* remove extra margin before navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* remove space above navbar */
+  width: 100%;
+  background: none;
+}
+
+/* ================= Signup Section ================= */
+.signup-bg {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: rgb(239, 232, 228);
+}
+
+/* Optional glowing circles */
+.circle-pink, .circle-purple {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(3rem);
+  opacity: 0.4;
+  animation: pulse 6s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ================= Signup Card ================= */
+.signup-card {
+  background: rgba(255,255,255,0.95);
+  padding: 2rem 1.8rem;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 4px 12px rgba(210,180,140,0.15),
+    0 8px 24px rgba(210,180,140,0.15),
+    0 12px 32px rgba(210,180,140,0.2);
+  max-width: 400px;
+  width: 95%;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.8s ease;
+  margin-top: 20px; /* distance from navbar */
+}
+
+.signup-card h2 {
+  color: #896c6c;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.signup-card p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-field {
+  padding: 0.7rem;
+  border: 1px solid #e5beb5;
+  border-radius: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background: #fdfcfb;
+  color: #1a1a1a; /* ✅ text always visible */
+  margin-bottom: 1rem;
+}
+
+.input-field:focus {
+  border-color: #896c6c;
+  box-shadow: 0 0 6px rgba(137,108,108,0.3);
+}
+
+.submit-btn {
+  padding: 0.8rem;
+  background: linear-gradient(to right, #896c6c, #e5beb5);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(137,108,108,0.2);
+  transition: transform 0.3s, background 0.3s;
+  width: 100%;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #eee6ca, #896c6c);
+}
+
+.terms-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.text-red-500 {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌙 Dark Mode Fix */
+@media (prefers-color-scheme: dark) {
+  body, .signup-bg {
+    background: rgb(239, 232, 228) !important;
+    color: #1a1a1a !important;
+  }
+  .signup-card {
+    background: rgba(255,255,255,0.97) !important;
+    color: #1a1a1a !important;
+  }
+  .input-field {
+    background: #fdfcfb !important;
+    color: #1a1a1a !important;
+  }
+  .signup-card h2 {
+    color: #896c6c !important;
+  }
+  .signup-card p, .terms-row {
+    color: #444 !important;
+  }
+}
