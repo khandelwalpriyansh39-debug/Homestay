@@ -116,13 +116,6 @@ export default function Login() {
           background: linear-gradient(to right, #eee6ca, #896c6c);
         }
 
-        .footer-row {
-          margin-top: 1rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 0.9rem;
-        }
 
         .footer-row a {
           color: #4f46e5;
